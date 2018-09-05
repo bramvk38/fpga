@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Jul 10 21:53:33 2013
+Quartus II Version : 10.1 Build 153 11/29/2010 SJ Full Version
+Revision Name : sm_clock
+Top-level Entity Name : clock
+Family : Cyclone II
+Total logic elements : 136
+    Total combinational functions : 130
+    Dedicated logic registers : 76
+Total registers : 76
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

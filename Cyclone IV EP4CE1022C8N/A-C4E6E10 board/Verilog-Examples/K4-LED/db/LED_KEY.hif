@@ -1,0 +1,44 @@
+Quartus II
+Version 11.0 Build 157 04/27/2011 SJ Full Version
+15
+1165
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+|i2c_altera|
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+LED_KEY
+# storage
+db|LED_KEY.(0).cnf
+db|LED_KEY.(0).cnf
+# case_insensitive
+# source_file
+led_key.bdf
+118f321b9c4d6671595964ef8c4612b
+26
+# internal_option {
+BLOCK_DESIGN_NAMING
+AUTO
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+

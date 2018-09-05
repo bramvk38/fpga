@@ -1,0 +1,32 @@
+//深圳市21EDA电子
+//开发板型号:A-C5FB
+//www.21eda.com
+//www.sz-21eda.com
+//www.21eda.net
+
+//本实验就是学习单个数码管的显示
+//我们的学习板使用的是共阳数码管。
+//如果对数码管显示还不熟悉的用户可以看看
+//本实验是点亮一位数码管，所以不需要时钟也可以运行的。
+//视频教程适合我们21EDA电子的所有学习板
+module SMG_LED (led_bit,dataout);
+
+//input clk_50M ;       //系统时钟50M输入 从17脚输入。
+output [7:0] dataout;   //数码管的七段码，ABCDEFG七段，还有一个小数点位。
+output led_bit;         //一位数码管的位选择
+
+reg [7:0] dataout;
+reg       led_bit;  
+
+//always @ ( posedge clk_50M )
+
+ //begin
+ always  led_bit <= 'b0; //是数码管的位选择处于导通状态
+
+ always  dataout<=8'b11000000; //修改7段码，可以显示不同的字符
+                               //数码管可以显示数字0到9，英文字母A到F,每个字符的显示码不一样。
+                               //本实验初始是在数码管显示0
+
+ //end
+endmodule
+

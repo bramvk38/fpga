@@ -1,0 +1,23 @@
+|key_led
+clk_50M => wei_ma[0]~reg0.CLK
+clk_50M => wei_ma[1]~reg0.CLK
+clk_50M => wei_ma[2]~reg0.CLK
+clk_50M => wei_ma[3]~reg0.CLK
+clk_50M => duan_ma[0]~reg0.CLK
+clk_50M => duan_ma[1]~reg0.CLK
+clk_50M => duan_ma[2]~reg0.CLK
+clk_50M => duan_ma[3]~reg0.CLK
+clk_50M => duan_ma[4]~reg0.CLK
+clk_50M => duan_ma[5]~reg0.CLK
+clk_50M => duan_ma[6]~reg0.CLK
+clk_50M => duan_ma[7]~reg0.CLK
+clk_50M => key_temp[0].CLK
+clk_50M => key_temp[1].CLK
+clk_50M => key_temp[2].CLK
+clk_50M => key_temp[3].CLK
+key[0] => key_temp[0].DATAIN
+key[1] => key_temp[1].DATAIN
+key[2] => key_temp[2].DATAIN
+key[3] => key_temp[3].DATAIN
+
+

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Sep 06 21:00:15 2015
+Quartus II Version : 11.0 Build 157 04/27/2011 SJ Full Version
+Revision Name : ledwater
+Top-level Entity Name : ledwater
+Family : Cyclone IV E
+Total logic elements : 96
+    Total combinational functions : 94
+    Dedicated logic registers : 54
+Total registers : 54
+Total pins : 3
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

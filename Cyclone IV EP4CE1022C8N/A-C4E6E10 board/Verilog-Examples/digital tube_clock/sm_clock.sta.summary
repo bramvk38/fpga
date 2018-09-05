@@ -1,0 +1,117 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clk'
+Slack : -6.615
+TNS   : -158.466
+
+Type  : Slow Model Setup 'sec'
+Slack : -3.795
+TNS   : -69.626
+
+Type  : Slow Model Setup 'count[17]'
+Slack : -0.471
+TNS   : -0.676
+
+Type  : Slow Model Setup 'dout1[0]'
+Slack : 0.235
+TNS   : 0.000
+
+Type  : Slow Model Hold 'clk'
+Slack : -2.563
+TNS   : -19.125
+
+Type  : Slow Model Hold 'count[17]'
+Slack : -1.690
+TNS   : -1.690
+
+Type  : Slow Model Hold 'sec'
+Slack : -0.283
+TNS   : -1.132
+
+Type  : Slow Model Hold 'dout1[0]'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'sec'
+Slack : -3.313
+TNS   : -74.200
+
+Type  : Slow Model Removal 'sec'
+Slack : 2.756
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clk'
+Slack : -1.941
+TNS   : -68.721
+
+Type  : Slow Model Minimum Pulse Width 'sec'
+Slack : -0.742
+TNS   : -35.616
+
+Type  : Slow Model Minimum Pulse Width 'count[17]'
+Slack : -0.742
+TNS   : -8.904
+
+Type  : Slow Model Minimum Pulse Width 'dout1[0]'
+Slack : -0.742
+TNS   : -1.484
+
+Type  : Fast Model Setup 'clk'
+Slack : -1.549
+TNS   : -25.811
+
+Type  : Fast Model Setup 'sec'
+Slack : -0.620
+TNS   : -9.882
+
+Type  : Fast Model Setup 'count[17]'
+Slack : 0.472
+TNS   : 0.000
+
+Type  : Fast Model Setup 'dout1[0]'
+Slack : 0.665
+TNS   : 0.000
+
+Type  : Fast Model Hold 'clk'
+Slack : -1.364
+TNS   : -23.481
+
+Type  : Fast Model Hold 'count[17]'
+Slack : -0.687
+TNS   : -0.687
+
+Type  : Fast Model Hold 'sec'
+Slack : -0.361
+TNS   : -2.092
+
+Type  : Fast Model Hold 'dout1[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'sec'
+Slack : -0.932
+TNS   : -20.768
+
+Type  : Fast Model Removal 'sec'
+Slack : 1.452
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clk'
+Slack : -1.380
+TNS   : -46.380
+
+Type  : Fast Model Minimum Pulse Width 'sec'
+Slack : -0.500
+TNS   : -24.000
+
+Type  : Fast Model Minimum Pulse Width 'count[17]'
+Slack : -0.500
+TNS   : -6.000
+
+Type  : Fast Model Minimum Pulse Width 'dout1[0]'
+Slack : -0.500
+TNS   : -1.000
+
+------------------------------------------------------------
