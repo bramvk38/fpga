@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.sigasi.hdt.shared.librarymapping.model:LibraryMappings xmlns:com.sigasi.hdt.shared.librarymapping.model="com.sigasi.hdt.vhdl.scoping.librarymapping" Version="2">
+  <Mappings Location="Common Libraries/IEEE" Library="ieee"/>
+  <Mappings Location="Common Libraries/IEEE Synopsys" Library="ieee"/>
+  <Mappings Location="Common Libraries/STD" Library="std"/>
+  <Mappings Location="audioboard" Library="audioboard"/>
+  <Mappings Location="demo" Library="demo"/>
+  <Mappings Location="i2c_opencores" Library="i2c"/>
+  <Mappings Location="i2s_opencores" Library="i2s"/>
+  <Mappings Location="simple_uart_github" Library="serial"/>
+  <Mappings Location="serial_uart_opencores" Library="serial_uart"/>
+</com.sigasi.hdt.shared.librarymapping.model:LibraryMappings>
