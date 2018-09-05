@@ -30,10 +30,10 @@
 -------------------------------------------------------------------------------
 -- Entity for Baud rate generator Unit - 9600 baudrate                       --
 -------------------------------------------------------------------------------
-library ieee, serial;
+library ieee, serial_uart;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use serial.UART_Def.all;
+use serial_uart.UART_Def.all;
 -------------------------------------------------------------------------------
 -- Baud rate generator
 -------------------------------------------------------------------------------

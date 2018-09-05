@@ -19,7 +19,7 @@
 -------------------------------------------------------------------------------
 -- Clock generator
 -------------------------------------------------------------------------------
-library IEEE, serial;
+library IEEE, serial_uart;
 use IEEE.Std_Logic_1164.all;
 --
 entity ClkGen is
@@ -72,10 +72,10 @@ end Behaviour;                          --=================== End of architecure
 --------------------------------------------------------------------------------
 -- Testbench for UART device 
 --------------------------------------------------------------------------------
-library ieee, serial;
+library ieee, serial_uart;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use serial.UART_Def.all;
+use serial_uart.UART_Def.all;
 
 entity UARTTEST is
 end UARTTEST;
