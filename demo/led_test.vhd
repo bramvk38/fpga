@@ -16,11 +16,11 @@ entity LedTest is
         LED5    : out std_logic;        --LED5, IO 83
         LED6    : out std_logic;        --LED6, IO 84
         LED7    : out std_logic;        --LED7, IO 85
-        KEY0    : in  std_logic;        --KEY0, pin 111
-        KEY1    : in  std_logic;        --KEY0, pin 15
+        KEY0    : in  std_logic;        --KEY0, pin 86
+        KEY1    : in  std_logic;        --KEY0, pin 87
         -- Project pins
-        UartTx  : out std_logic;        -- pin xx
-        UartRx  : in  std_logic);       -- pin xx
+        UartTx  : out std_logic;        -- pin 51
+        UartRx  : in  std_logic);       -- pin 52
 end entity LedTest;
 
 library serial, uart2reg;
@@ -39,18 +39,18 @@ architecture structure of LedTest is
 begin
 
     -- Assign LED outputs
-    LED0 <= LedCtrl(0);
-    LED1 <= LedCtrl(1);
-    LED2 <= LedCtrl(2);
-    LED3 <= LedCtrl(3);
-    LED4 <= LedCtrl(4);
-    LED5 <= LedCtrl(5);
-    LED6 <= LedCtrl(6);
-    LED7 <= LedCtrl(7);
+    LED0 <= not LedCtrl(0) and KEY0;
+    LED1 <= not LedCtrl(1) and KEY1;
+    LED2 <= not LedCtrl(2);
+    LED3 <= not LedCtrl(3);
+    LED4 <= not LedCtrl(4);
+    LED5 <= not LedCtrl(5);
+    LED6 <= not LedCtrl(6);
+    LED7 <= not LedCtrl(7);
 
     -- Assign KEY status register
-    KeyStat(0)          <= KEY0;
-    KeyStat(1)          <= KEY1;
+    KeyStat(0)          <= not KEY0;
+    KeyStat(1)          <= not KEY1;
     KeyStat(7 downto 2) <= (others => '0');
 
     -- Registers

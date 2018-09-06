@@ -1,0 +1,6 @@
+
+State Machine - |LedTest|uart2reg:registers|State
+Name State.S_READ_REG State.S_WRITE_REG State.S_IDLE 
+State.S_IDLE 0 0 0 
+State.S_WRITE_REG 0 1 1 
+State.S_READ_REG 1 0 1 
