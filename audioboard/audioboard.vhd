@@ -5,140 +5,84 @@ use ieee.std_logic_1164.all;
 
 entity AudioBoard is
     port(
-        Clk20M       : in  std_logic;
-        i2s_sd_i     : in  std_logic;
-        i2s_sck_i    : in  std_logic;
-        i2s_ws_i     : in  std_logic;
-        i2s_sd_o     : out std_logic;
-        i2s_sck_o    : out std_logic;
-        i2s_ws_o     : out std_logic;
-        wb_we_i      : in  std_logic;
-        wb_stb_i     : in  std_logic;
-        wb_cyc_i     : in  std_logic;
-        wb_ack_o     : out std_logic;
-        wb_inta_o    : out std_logic;
-        scl_pad_i    : in  std_logic;
-        scl_pad_o    : out std_logic;
-        scl_padoen_o : out std_logic;
-        sda_pad_i    : in  std_logic;
-        sda_pad_o    : out std_logic;
-        sda_padoen_o : out std_logic;
-        CS_N         : in  Std_Logic;
-        RD_N         : in  Std_Logic;
-        WR_N         : in  Std_Logic;
-        RxD          : in  Std_Logic;
-        TxD          : out Std_Logic);
+        -- Board default pins
+        ClkSys  : in  std_logic;        --System Clk 50M, pin 23
+        ClkUser : in  std_logic;        --System Clk, pin 24
+        LED0    : out std_logic;        --LED0, IO 73
+        LED1    : out std_logic;        --LED1, IO 74
+        LED2    : out std_logic;        --LED2, IO 75
+        LED3    : out std_logic;        --LED3, IO 76
+        LED4    : out std_logic;        --LED4, IO 77
+        LED5    : out std_logic;        --LED5, IO 83
+        LED6    : out std_logic;        --LED6, IO 84
+        LED7    : out std_logic;        --LED7, IO 85
+        KEY0    : in  std_logic;        --KEY0, pin 86
+        KEY1    : in  std_logic;        --KEY0, pin 87
+        -- Project pins
+        UartTx  : out std_logic;        -- pin 51
+        UartRx  : in  std_logic);       -- pin 52
 end entity AudioBoard;
 
-library i2c, i2s, serial;
+library serial, uart2reg;
 
 architecture structure of AudioBoard is
-    signal conf_ratio   : std_logic_vector(7 downto 0);
-    signal conf_res     : std_logic_vector(5 downto 0);
-    signal conf_en      : std_logic;
-    signal conf_swap    : std_logic;
-    signal sample_dat_i : std_logic_vector(24 - 1 downto 0);
-    signal sample_dat_o : std_logic_vector(24 - 1 downto 0);
-    signal mem_rdwr     : std_logic;
-    signal sample_addr  : std_logic_vector(10 - 2 downto 0);
-    signal evt_lsbf     : std_logic;
-    signal evt_hsbf     : std_logic;
-    signal wb_rst_i     : std_logic;
-    signal arst_i       : std_logic;
-    signal wb_dat_i     : std_logic_vector(7 downto 0);
-    signal Reset        : Std_Logic;
-    signal IntRx_N      : Std_Logic;
-    signal IntTx_N      : Std_Logic;
-    signal Addr         : Std_Logic_Vector(1 downto 0);
-    signal DataIn       : Std_Logic_Vector(7 downto 0);
-    signal DataOut      : Std_Logic_Vector(7 downto 0);
+    -- UART
+    signal UartTx_data  : std_logic_vector(7 downto 0);
+    signal UartTx_write : std_logic;
+    signal UartTx_busy  : std_logic;
+    signal UartRx_data  : std_logic_vector(7 downto 0);
+    signal UartRx_valid : std_logic;
+    signal UartRx_read  : std_logic;
+    -- Registers
+    signal LedCtrl      : std_logic_vector(7 downto 0);
+    signal KeyStat      : std_logic_vector(7 downto 0);
 begin
 
-    audio_i2s_rx : entity i2s.i2s_codec
-        generic map(
-            DATA_WIDTH  => 24,
-            ADDR_WIDTH  => 10,
-            IS_MASTER   => 0,
-            IS_RECEIVER => 1)
-        port map(
-            wb_clk_i     => Clk20M,
-            conf_res     => conf_res,
-            conf_ratio   => conf_ratio,
-            conf_swap    => conf_swap,
-            conf_en      => conf_en,
-            i2s_sd_i     => i2s_sd_i,
-            i2s_sck_i    => i2s_sck_i,
-            i2s_ws_i     => i2s_ws_i,
-            sample_dat_i => sample_dat_i,
-            sample_dat_o => sample_dat_o,
-            mem_rdwr     => mem_rdwr,
-            sample_addr  => sample_addr,
-            evt_hsbf     => evt_hsbf,
-            evt_lsbf     => evt_lsbf,
-            i2s_sd_o     => open,
-            i2s_sck_o    => open,
-            i2s_ws_o     => open);
+    -- Assign LED outputs
+    LED0 <= not LedCtrl(0) and KEY0;
+    LED1 <= not LedCtrl(1) and KEY1;
+    LED2 <= not LedCtrl(2);
+    LED3 <= not LedCtrl(3);
+    LED4 <= not LedCtrl(4);
+    LED5 <= not LedCtrl(5);
+    LED6 <= not LedCtrl(6);
+    LED7 <= not LedCtrl(7);
 
-    audio_i2s_tx : entity i2s.i2s_codec
-        generic map(
-            DATA_WIDTH  => 24,
-            ADDR_WIDTH  => 10,
-            IS_MASTER   => 0,
-            IS_RECEIVER => 0)
-        port map(
-            wb_clk_i     => Clk20M,
-            conf_res     => conf_res,
-            conf_ratio   => conf_ratio,
-            conf_swap    => conf_swap,
-            conf_en      => conf_en,
-            i2s_sd_i     => '0',
-            i2s_sck_i    => '0',
-            i2s_ws_i     => '0',
-            sample_dat_i => sample_dat_i,
-            sample_dat_o => sample_dat_o,
-            mem_rdwr     => mem_rdwr,
-            sample_addr  => sample_addr,
-            evt_hsbf     => evt_hsbf,
-            evt_lsbf     => evt_lsbf,
-            i2s_sd_o     => i2s_sd_o,
-            i2s_sck_o    => i2s_sck_o,
-            i2s_ws_o     => i2s_ws_o);
+    -- Assign KEY status register
+    KeyStat(0)          <= not KEY0;
+    KeyStat(1)          <= not KEY1;
+    KeyStat(7 downto 2) <= (others => '0');
 
-    audio_i2c : entity i2c.i2c_master_top
+    -- Registers
+    registers : entity uart2reg.uart2reg
         generic map(
-            ARST_LVL => '0')
+            N => 2)
         port map(
-            wb_clk_i     => Clk20M,
-            wb_rst_i     => wb_rst_i,
-            arst_i       => arst_i,
-            wb_adr_i     => (others => '0'),
-            wb_dat_i     => wb_dat_i,
-            wb_dat_o     => open,
-            wb_we_i      => wb_we_i,
-            wb_stb_i     => wb_stb_i,
-            wb_cyc_i     => wb_cyc_i,
-            wb_ack_o     => wb_ack_o,
-            wb_inta_o    => wb_inta_o,
-            scl_pad_i    => scl_pad_i,
-            scl_pad_o    => scl_pad_o,
-            scl_padoen_o => scl_padoen_o,
-            sda_pad_i    => sda_pad_i,
-            sda_pad_o    => sda_pad_o,
-            sda_padoen_o => sda_padoen_o);
+            Clk          => ClkSys,
+            UartTx_data  => UartTx_data,
+            UartTx_write => UartTx_write,
+            UartTx_busy  => UartTx_busy,
+            UartRx_data  => UartRx_data,
+            UartRx_valid => UartRx_valid,
+            UartRx_read  => UartRx_read,
+            Reg_Read(0)  => LedCtrl,
+            Reg_Read(1)  => KeyStat,
+            Reg_Write(0) => LedCtrl,
+            Reg_Write(1) => open);
 
-    serial_uart : entity serial.miniUART
+    -- UART interface
+    serial_simple : entity serial.uart
         port map(
-            SysClk  => Clk20M,
-            Reset   => Reset,
-            CS_N    => CS_N,
-            RD_N    => RD_N,
-            WR_N    => WR_N,
-            RxD     => RxD,
-            TxD     => TxD,
-            IntRx_N => IntRx_N,
-            IntTx_N => IntTx_N,
-            Addr    => Addr,
-            DataIn  => DataIn,
-            DataOut => DataOut);
+            i_clk           => ClkSys,
+            i_srst          => '0',
+            i_baud_div      => X"01B2", -- 50M / 434 = 115207 bps
+            o_uart_tx       => UartTx,
+            i_uart_rx       => UartRx,
+            i_tx_send       => UartTx_data,
+            i_tx_send_we    => UartTx_write,
+            o_tx_send_busy  => UartTx_busy,
+            o_rx_read       => UartRx_data,
+            o_rx_read_valid => UartRx_valid,
+            i_rx_read_rd    => UartRx_read);
 
 end architecture structure;             -- of AudioBoard
