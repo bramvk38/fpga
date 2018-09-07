@@ -6,26 +6,28 @@ use ieee.std_logic_1164.all;
 entity AudioBoard is
     port(
         -- Board default pins
-        ClkSys  : in  std_logic;        --System Clk 50M, pin 23
-        ClkUser : in  std_logic;        --User Clk, pin 24 (NA)
-        LED0    : out std_logic;        --LED0, IO 73
-        LED1    : out std_logic;        --LED1, IO 74
-        LED2    : out std_logic;        --LED2, IO 75
-        LED3    : out std_logic;        --LED3, IO 76
-        LED4    : out std_logic;        --LED4, IO 77
-        LED5    : out std_logic;        --LED5, IO 83
-        LED6    : out std_logic;        --LED6, IO 84
-        LED7    : out std_logic;        --LED7, IO 85
-        KEY0    : in  std_logic;        --KEY0, pin 86
-        KEY1    : in  std_logic;        --KEY0, pin 87
+        ClkSys   : in    std_logic;     --System Clk 50M, pin 23
+        ClkUser  : in    std_logic;     --User Clk, pin 24 (NA)
+        LED0     : out   std_logic;     --LED0, IO 73
+        LED1     : out   std_logic;     --LED1, IO 74
+        LED2     : out   std_logic;     --LED2, IO 75
+        LED3     : out   std_logic;     --LED3, IO 76
+        LED4     : out   std_logic;     --LED4, IO 77
+        LED5     : out   std_logic;     --LED5, IO 83
+        LED6     : out   std_logic;     --LED6, IO 84
+        LED7     : out   std_logic;     --LED7, IO 85
+        KEY0     : in    std_logic;     --KEY0, pin 86
+        KEY1     : in    std_logic;     --KEY0, pin 87
         -- Project pins
-        UartTx  : out std_logic;        -- pin 51
-        UartRx  : in  std_logic);       -- pin 52
+        AudioScl : inout std_logic;
+        AudioSda : inout std_logic;
+        UartTx   : out   std_logic;     -- pin 51
+        UartRx   : in    std_logic);    -- pin 52
 end entity AudioBoard;
 
-library serial, uart2reg;
+library serial, uart2reg, i2c, i2s;
 
-architecture structure of AudioBoard is
+architecture mixed of AudioBoard is
     -- UART
     signal UartTx_data  : std_logic_vector(7 downto 0);
     signal UartTx_write : std_logic;
@@ -36,6 +38,13 @@ architecture structure of AudioBoard is
     -- Registers
     signal LedCtrl      : std_logic_vector(7 downto 0);
     signal KeyStat      : std_logic_vector(7 downto 0);
+    -- I2C UDA1380
+    signal TIC          : std_logic;
+    signal counter      : std_logic_vector(7 downto 0);
+    signal SCL_IN       : std_logic;
+    signal SCL_OUT      : std_logic;
+    signal SDA_IN       : std_logic;
+    signal SDA_OUT      : std_logic;
 begin
 
     -- Assign LED outputs
@@ -52,6 +61,51 @@ begin
     KeyStat(0)          <= not KEY0;
     KeyStat(1)          <= not KEY1;
     KeyStat(7 downto 2) <= (others => '0');
+
+    -- I2S Rx UDA 1380 audio codec module
+    --i2s_rx_UDA1380 : entity i2s.rx_i2s_tops
+
+    -- I2C UDA 1380 audio codec module
+    i2c_UDA1380 : entity i2c.I2CMASTER
+        generic map(
+            DEVICE => x"38")
+        port map(
+            MCLK       => ClkSys,
+            nRST       => '1',
+            SRST       => '0',
+            TIC        => TIC,
+            DIN        => DIN,
+            DOUT       => DOUT,
+            RD         => RD,
+            WE         => WE,
+            NACK       => NACK,
+            QUEUED     => QUEUED,
+            DATA_VALID => DATA_VALID,
+            STOP       => STOP,
+            STATUS     => STATUS,
+            SCL_IN     => SCL_IN,
+            SCL_OUT    => SCL_OUT,
+            SDA_IN     => SDA_IN,
+            SDA_OUT    => SDA_OUT);
+
+    gen_TIC : process(ClkSys)
+    begin
+        if rising_edge(ClkSys) then
+            if counter = 160 then       -- 50M / 160 = ~300 khz for ~100 kbit
+                TIC     <= '1';
+                counter <= (others => '0');
+            else
+                TIC     <= '0';
+                counter <= counter + 1;
+            end if;
+        end if;
+    end process;
+
+    --  open drain PAD pull up 1.5K needed
+    AudioScl <= 'Z' when SCL_OUT = '1' else '0';
+    SCL_IN   <= to_UX01(AudioScl);
+    AudioSda <= 'Z' when SDA_OUT = '1' else '0';
+    SDA_IN   <= to_UX01(AudioSda);
 
     -- Registers
     registers : entity uart2reg.uart2reg
@@ -85,4 +139,4 @@ begin
             o_rx_read_valid => UartRx_valid,
             i_rx_read_rd    => UartRx_read);
 
-end architecture structure;             -- of AudioBoard
+end architecture mixed;                 -- of AudioBoard
