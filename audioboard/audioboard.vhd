@@ -36,8 +36,15 @@ architecture mixed of AudioBoard is
     signal UartRx_valid : std_logic;
     signal UartRx_read  : std_logic;
     -- Registers
+    signal Reg_Written  : std_logic;
     signal LedCtrl      : std_logic_vector(7 downto 0);
     signal KeyStat      : std_logic_vector(7 downto 0);
+    signal UDA1380_Ctrl : std_logic_vector(7 downto 0);
+    signal UDA1380_Addr : std_logic_vector(7 downto 0);
+    signal UDA1380_WrMb : std_logic_vector(7 downto 0);
+    signal UDA1380_WrLb : std_logic_vector(7 downto 0);
+    signal UDA1380_RrMb : std_logic_vector(7 downto 0);
+    signal UDA1380_RrLb : std_logic_vector(7 downto 0);
     -- I2C UDA1380
     signal TIC          : std_logic;
     signal counter      : std_logic_vector(7 downto 0);
@@ -66,27 +73,23 @@ begin
     --i2s_rx_UDA1380 : entity i2s.rx_i2s_tops
 
     -- I2C UDA 1380 audio codec module
-    i2c_UDA1380 : entity i2c.I2CMASTER
+    i2c_UDA1380 : entity i2c.I2cMaster_UDA1380
         generic map(
-            DEVICE => x"38")
+            DEVICE => X"38")
         port map(
-            MCLK       => ClkSys,
-            nRST       => '1',
-            SRST       => '0',
-            TIC        => TIC,
-            DIN        => DIN,
-            DOUT       => DOUT,
-            RD         => RD,
-            WE         => WE,
-            NACK       => NACK,
-            QUEUED     => QUEUED,
-            DATA_VALID => DATA_VALID,
-            STOP       => STOP,
-            STATUS     => STATUS,
-            SCL_IN     => SCL_IN,
-            SCL_OUT    => SCL_OUT,
-            SDA_IN     => SDA_IN,
-            SDA_OUT    => SDA_OUT);
+            Clk     => ClkSys,
+            TIC     => TIC,
+            Read    => UDA1380_Ctrl(0) and Reg_Written,
+            Write   => UDA1380_Ctrl(1) and Reg_Written,
+            Addr    => UDA1380_Addr,
+            WrMSB   => UDA1380_WrMb,
+            WrLSB   => UDA1380_WrLb,
+            RrMSB   => UDA1380_RrMb,
+            RrLSB   => UDA1380_RrLb,
+            SCL_IN  => SCL_IN,
+            SCL_OUT => SCL_OUT,
+            SDA_IN  => SDA_IN,
+            SDA_OUT => SDA_OUT);
 
     gen_TIC : process(ClkSys)
     begin
@@ -110,7 +113,7 @@ begin
     -- Registers
     registers : entity uart2reg.uart2reg
         generic map(
-            N => 2)
+            N => 8)
         port map(
             Clk          => ClkSys,
             UartTx_data  => UartTx_data,
@@ -119,10 +122,23 @@ begin
             UartRx_data  => UartRx_data,
             UartRx_valid => UartRx_valid,
             UartRx_read  => UartRx_read,
-            Reg_Read(0)  => LedCtrl,
+            Reg_Written  => Reg_Written,
+            Reg_Read(0)  => LedCtrl,    -- Read Back
             Reg_Read(1)  => KeyStat,
+            Reg_Read(2)  => UDA1380_Ctrl, -- Read Back
+            Reg_Read(3)  => UDA1380_Addr, -- Read Back
+            Reg_Read(4)  => UDA1380_WrMb, -- Read Back
+            Reg_Read(5)  => UDA1380_WrLb, -- Read Back
+            Reg_Read(6)  => UDA1380_RrMb,
+            Reg_Read(7)  => UDA1380_RrLb,
             Reg_Write(0) => LedCtrl,
-            Reg_Write(1) => open);
+            Reg_Write(1) => open,
+            Reg_Write(2) => UDA1380_Ctrl,
+            Reg_Write(3) => UDA1380_Addr,
+            Reg_Write(4) => UDA1380_WrMb,
+            Reg_Write(5) => UDA1380_WrLb,
+            Reg_Write(6) => open,
+            Reg_Write(7) => open);
 
     -- UART interface
     serial_simple : entity serial.uart

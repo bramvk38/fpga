@@ -22,6 +22,7 @@ entity uart2reg is
         UartRx_valid : in  std_logic;
         UartRx_read  : out std_logic;
         -- Registers
+        Reg_Written  : out std_logic;
         Reg_Read     : in  data_8b_array(N - 1 downto 0);
         Reg_Write    : out data_8b_array(N - 1 downto 0));
 end entity uart2reg;
@@ -48,8 +49,10 @@ begin
     p_WriteReg : process(Clk)
     begin
         if rising_edge(Clk) then
+            Reg_Written <= '0';
             if RxDataValid = '1' and to_integer(unsigned(Address)) < N then -- RxData valid & address exists
                 Reg_Write(to_integer(unsigned(Address))) <= RxData;
+                Reg_Written                              <= '1';
             end if;
         end if;
     end process;
