@@ -7,7 +7,7 @@ entity AudioBoard is
     port(
         -- Board default pins
         ClkSys  : in  std_logic;        --System Clk 50M, pin 23
-        ClkUser : in  std_logic;        --System Clk, pin 24
+        ClkUser : in  std_logic;        --User Clk, pin 24 (NA)
         LED0    : out std_logic;        --LED0, IO 73
         LED1    : out std_logic;        --LED1, IO 74
         LED2    : out std_logic;        --LED2, IO 75
