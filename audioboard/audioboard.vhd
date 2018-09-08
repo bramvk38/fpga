@@ -25,7 +25,7 @@ entity AudioBoard is
         UartRx   : in    std_logic);    -- pin 52
 end entity AudioBoard;
 
-library serial, uart2reg, i2c, i2s;
+library serial, uart2reg, i2c_master, i2s;
 
 architecture mixed of AudioBoard is
     -- UART
@@ -73,7 +73,7 @@ begin
     --i2s_rx_UDA1380 : entity i2s.rx_i2s_tops
 
     -- I2C UDA 1380 audio codec module
-    i2c_UDA1380 : entity i2c.I2cMaster_UDA1380
+    i2c_UDA1380 : entity i2c_master.I2cMaster_UDA1380
         generic map(
             DEVICE => X"38")
         port map(
@@ -84,8 +84,8 @@ begin
             Addr    => UDA1380_Addr,
             WrMSB   => UDA1380_WrMb,
             WrLSB   => UDA1380_WrLb,
-            RrMSB   => UDA1380_RrMb,
-            RrLSB   => UDA1380_RrLb,
+            RdMSB   => UDA1380_RrMb,
+            RdLSB   => UDA1380_RrLb,
             SCL_IN  => SCL_IN,
             SCL_OUT => SCL_OUT,
             SDA_IN  => SDA_IN,

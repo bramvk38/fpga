@@ -2,7 +2,7 @@
 <com.sigasi.hdt.shared.librarymapping.model:LibraryMappings xmlns:com.sigasi.hdt.shared.librarymapping.model="com.sigasi.hdt.vhdl.scoping.librarymapping" Version="2">
   <Mappings Location="audioboard" Library="audioboard"/>
   <Mappings Location="demo" Library="demo"/>
-  <Mappings Location="i2c_github" Library="i2c"/>
+  <Mappings Location="i2c_master" Library="i2c_master"/>
   <Mappings Location="i2c_opencores" Library="i2c_opencores"/>
   <Mappings Location="i2s_opencores" Library="i2s"/>
   <Mappings Location="Common Libraries/IEEE" Library="ieee"/>
