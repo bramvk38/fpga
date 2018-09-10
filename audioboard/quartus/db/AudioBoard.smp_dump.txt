@@ -4,3 +4,57 @@ Name State.S_READ_REG State.S_WRITE_REG State.S_IDLE
 State.S_IDLE 0 0 0 
 State.S_WRITE_REG 0 1 1 
 State.S_READ_REG 1 0 1 
+
+State Machine - |AudioBoard|I2cMaster_UDA1380:i2c_UDA1380|next_state
+Name next_state.S_SENDACKDOWN next_state.S_SENDACKUP next_state.S_SENDACK next_state.S_RDSCLDOWN next_state.S_RDSCLUP next_state.S_RECVBYTE next_state.S_CHECKACKDOWN next_state.S_CHECKACKUP next_state.S_CHECKACK next_state.S_WESCLDOWN next_state.S_WESCLUP next_state.S_SENDBYTE next_state.S_STOP next_state.S_PRESTOP next_state.S_END next_state.S_READ_LSB next_state.S_READ_MSB next_state.S_READ_DEV next_state.S_READ_SR next_state.S_WRITE_LSB next_state.S_WRITE_MSB next_state.S_WRITE_ADDR next_state.S_START next_state.S_IDLE 
+next_state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+next_state.S_START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+next_state.S_WRITE_ADDR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+next_state.S_WRITE_MSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+next_state.S_WRITE_LSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+next_state.S_READ_SR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+next_state.S_READ_DEV 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+next_state.S_READ_MSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+next_state.S_READ_LSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+next_state.S_END 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+next_state.S_PRESTOP 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+next_state.S_STOP 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_SENDBYTE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_WESCLUP 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_WESCLDOWN 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_CHECKACK 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_CHECKACKUP 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_CHECKACKDOWN 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_RECVBYTE 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_RDSCLUP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_RDSCLDOWN 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_SENDACK 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_SENDACKUP 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+next_state.S_SENDACKDOWN 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |AudioBoard|I2cMaster_UDA1380:i2c_UDA1380|state
+Name state.S_SENDACKDOWN state.S_SENDACKUP state.S_SENDACK state.S_RDSCLDOWN state.S_RDSCLUP state.S_RECVBYTE state.S_CHECKACKDOWN state.S_CHECKACKUP state.S_CHECKACK state.S_WESCLDOWN state.S_WESCLUP state.S_SENDBYTE state.S_STOP state.S_PRESTOP state.S_END state.S_READ_LSB state.S_READ_MSB state.S_READ_DEV state.S_READ_SR state.S_WRITE_LSB state.S_WRITE_MSB state.S_WRITE_ADDR state.S_START state.S_IDLE 
+state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.S_START 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.S_WRITE_ADDR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.S_WRITE_MSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.S_WRITE_LSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.S_READ_SR 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.S_READ_DEV 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.S_READ_MSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.S_READ_LSB 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.S_END 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.S_PRESTOP 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.S_STOP 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDBYTE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_WESCLUP 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_WESCLDOWN 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_CHECKACK 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_CHECKACKUP 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_CHECKACKDOWN 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RECVBYTE 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RDSCLUP 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_RDSCLDOWN 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDACK 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDACKUP 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.S_SENDACKDOWN 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

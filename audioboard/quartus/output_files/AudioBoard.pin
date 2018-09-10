@@ -77,7 +77,7 @@ VCCINT                       : 5         : power  :                   : 1.2V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : 7         :        :                   :         : 1         :                
 ~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 8         : input  : 3.3-V LVTTL       :         : 1         : N              
 nSTATUS                      : 9         :        :                   :         : 1         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 10        :        :                   :         : 1         :                
+AudioTxClk                   : 10        : output : 3.3-V LVTTL       :         : 1         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 11        :        :                   :         : 1         :                
 ~ALTERA_DCLK~                : 12        : output : 3.3-V LVTTL       :         : 1         : N              
 ~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 13        : input  : 3.3-V LVTTL       :         : 1         : N              
@@ -92,7 +92,7 @@ nCE                          : 21        :        :                   :         
 GND                          : 22        : gnd    :                   :         :           :                
 ClkSys                       : 23        : input  : 3.3-V LVTTL       :         : 1         : Y              
 ClkUser                      : 24        : input  : 3.3-V LVTTL       :         : 2         : Y              
-GND+                         : 25        :        :                   :         : 2         :                
+AudioRxClk                   : 25        : input  : 3.3-V LVTTL       :         : 2         : N              
 VCCIO2                       : 26        : power  :                   : 3.3V    : 2         :                
 GND                          : 27        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 28        :        :                   :         : 2         :                
@@ -110,7 +110,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 39        :        :                   :      
 VCCIO3                       : 40        : power  :                   : 3.3V    : 3         :                
 GND                          : 41        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 42        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 43        :        :                   :         : 3         :                
+AudioMCLK                    : 43        : output : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 44        :        :                   :         : 3         :                
 VCCINT                       : 45        : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 46        :        :                   :         : 3         :                
@@ -191,8 +191,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 120       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 121       :        :                   :         : 7         :                
 VCCIO7                       : 122       : power  :                   : 3.3V    : 7         :                
 GND                          : 123       : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 124       :        :                   :         : 7         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 125       :        :                   :         : 7         :                
+AudioSda                     : 124       : bidir  : 3.3-V LVTTL       :         : 7         : N              
+AudioScl                     : 125       : bidir  : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 126       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 127       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 128       :        :                   :         : 8         :                
@@ -204,12 +204,12 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 133       :        :                   :      
 VCCINT                       : 134       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 135       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 136       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 137       :        :                   :         : 8         :                
+AudioRxData                  : 137       : input  : 3.3-V LVTTL       :         : 8         : N              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 138       :        :                   :         : 8         :                
 VCCIO8                       : 139       : power  :                   : 3.3V    : 8         :                
 GND                          : 140       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 141       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 142       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 143       :        :                   :         : 8         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 144       :        :                   :         : 8         :                
+AudioTxData                  : 142       : output : 3.3-V LVTTL       :         : 8         : N              
+AudioRxWs                    : 143       : input  : 3.3-V LVTTL       :         : 8         : N              
+AudioTxWs                    : 144       : output : 3.3-V LVTTL       :         : 8         : N              
 GND                          : EPAD      :        :                   :         :           :                

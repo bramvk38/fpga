@@ -1,5 +1,5 @@
 Flow report for AudioBoard
-Fri Sep 07 08:53:10 2018
+Mon Sep 10 17:57:46 2018
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Fri Sep 07 08:53:04 2018      ;
+; Flow Status                        ; Successful - Mon Sep 10 17:57:41 2018      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; AudioBoard                                 ;
 ; Top-level Entity Name              ; AudioBoard                                 ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE10E22C8                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 191 / 10,320 ( 2 % )                       ;
-;     Total combinational functions  ; 142 / 10,320 ( 1 % )                       ;
-;     Dedicated logic registers      ; 123 / 10,320 ( 1 % )                       ;
-; Total registers                    ; 123                                        ;
-; Total pins                         ; 14 / 92 ( 15 % )                           ;
+; Total logic elements               ; 482 / 10,320 ( 5 % )                       ;
+;     Total combinational functions  ; 386 / 10,320 ( 4 % )                       ;
+;     Dedicated logic registers      ; 285 / 10,320 ( 3 % )                       ;
+; Total registers                    ; 285                                        ;
+; Total pins                         ; 23 / 92 ( 25 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 423,936 ( 0 % )                        ;
 ; Embedded Multiplier 9-bit elements ; 0 / 46 ( 0 % )                             ;
-; Total PLLs                         ; 0 / 2 ( 0 % )                              ;
+; Total PLLs                         ; 1 / 2 ( 50 % )                             ;
 +------------------------------------+--------------------------------------------+
 
 
@@ -64,26 +64,32 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/07/2018 08:52:45 ;
+; Start date & time ; 09/10/2018 17:57:21 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; AudioBoard          ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                 ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 158515232110867.153630316502552 ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                               ; --            ; --          ; --         ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                            ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; 16764057                        ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING           ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                          ; --            ; --          ; Top        ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                    ; --            ; --          ; --         ;
-+-------------------------------------+---------------------------------+---------------+-------------+------------+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                 ;
++-------------------------------------+-------------------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                           ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+-------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 158515232110867.153659504102912                 ; --            ; --          ; --         ;
+; IP_TOOL_NAME                        ; ALTPLL                                          ; --            ; --          ; --         ;
+; IP_TOOL_VERSION                     ; 13.1                                            ; --            ; --          ; --         ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                              ; --            ; --          ; --         ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; ../../altera_ip/altpll_12M289_ip/uda1380pll.cmp ; --            ; --          ; --         ;
+; MISC_FILE                           ; ../../altera_ip/altpll_12M289_ip/uda1380pll.ppf ; --            ; --          ; --         ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                            ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; 16764057                                        ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                           ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                          ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                             ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW           ; --            ; --          ; --         ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                    ; --            ; --          ; --         ;
++-------------------------------------+-------------------------------------------------+---------------+-------------+------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -91,11 +97,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:05     ; 1.0                     ; 4715 MB             ; 00:00:04                           ;
-; Fitter                    ; 00:00:10     ; 1.9                     ; 5666 MB             ; 00:00:14                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 4590 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:04     ; 1.0                     ; 4712 MB             ; 00:00:03                           ;
-; Total                     ; 00:00:21     ; --                      ; --                  ; 00:00:23                           ;
+; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 4714 MB             ; 00:00:06                           ;
+; Fitter                    ; 00:00:09     ; 3.6                     ; 5670 MB             ; 00:00:14                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 4591 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 4726 MB             ; 00:00:04                           ;
+; Total                     ; 00:00:20     ; --                      ; --                  ; 00:00:26                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

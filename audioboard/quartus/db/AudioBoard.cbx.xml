@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="AudioBoard">
+		<CBX_INST_ENTRY INSTANCE_NAME="|AudioBoard|uda1380pll:audio_mclk|altpll:altpll_component" CBX_FILE_NAME="uda1380pll_altpll.v"/>
 	</PROJECT>
 </LOG_ROOT>

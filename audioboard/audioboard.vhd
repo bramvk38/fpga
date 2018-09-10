@@ -117,11 +117,13 @@ begin
             ready      => open);
     AudioTxClk <= AudioRxClk;
     AudioTxWs  <= AudioRxWs;
+	 
+	 AudioSampleTx <= AudioSampleRx; -- Loop back
 
     -- I2C UDA 1380 audio codec module
     i2c_UDA1380 : entity i2c_master.I2cMaster_UDA1380
         generic map(
-            DEVICE => X"38")
+            DEVICE => X"18")
         port map(
             Clk     => ClkSys,
             TIC     => TIC,

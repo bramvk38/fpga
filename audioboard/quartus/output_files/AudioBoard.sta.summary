@@ -3,39 +3,75 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'ClkSys'
-Slack : -3.900
-TNS   : -233.543
+Slack : 11.819
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Setup 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 75.455
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.452
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ClkSys'
 Slack : 0.453
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClkSys'
-Slack : -3.000
-TNS   : -185.901
+Slack : 9.740
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 40.402
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'ClkSys'
-Slack : -3.600
-TNS   : -208.816
+Slack : 12.331
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 75.742
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ClkSys'
-Slack : 0.393
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.401
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClkSys'
-Slack : -3.000
-TNS   : -185.901
+Slack : 9.750
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 40.401
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'ClkSys'
-Slack : -1.065
-TNS   : -37.904
+Slack : 16.448
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 78.759
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'ClkSys'
-Slack : 0.185
+Slack : 0.186
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClkSys'
-Slack : -3.000
-TNS   : -161.974
+Slack : 9.263
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 40.482
+TNS   : 0.000
 
 ------------------------------------------------------------
