@@ -77,43 +77,43 @@ VCCINT                       : 5         : power  :                   : 1.2V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : 7         :        :                   :         : 1         :                
 ~ALTERA_FLASH_nCE_nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 8         : input  : 3.3-V LVTTL       :         : 1         : N              
 nSTATUS                      : 9         :        :                   :         : 1         :                
-AudioTxClk                   : 10        : output : 3.3-V LVTTL       :         : 1         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 10        :        :                   :         : 1         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 11        :        :                   :         : 1         :                
 ~ALTERA_DCLK~                : 12        : output : 3.3-V LVTTL       :         : 1         : N              
 ~ALTERA_DATA0~ / RESERVED_INPUT_WITH_WEAK_PULLUP : 13        : input  : 3.3-V LVTTL       :         : 1         : N              
 nCONFIG                      : 14        :        :                   :         : 1         :                
-TDI                          : 15        : input  :                   :         : 1         :                
-TCK                          : 16        : input  :                   :         : 1         :                
+altera_reserved_tdi          : 15        : input  : 3.3-V LVTTL       :         : 1         : N              
+altera_reserved_tck          : 16        : input  : 3.3-V LVTTL       :         : 1         : N              
 VCCIO1                       : 17        : power  :                   : 3.3V    : 1         :                
-TMS                          : 18        : input  :                   :         : 1         :                
+altera_reserved_tms          : 18        : input  : 3.3-V LVTTL       :         : 1         : N              
 GND                          : 19        : gnd    :                   :         :           :                
-TDO                          : 20        : output :                   :         : 1         :                
+altera_reserved_tdo          : 20        : output : 3.3-V LVTTL       :         : 1         : N              
 nCE                          : 21        :        :                   :         : 1         :                
 GND                          : 22        : gnd    :                   :         :           :                
 ClkSys                       : 23        : input  : 3.3-V LVTTL       :         : 1         : Y              
 ClkUser                      : 24        : input  : 3.3-V LVTTL       :         : 2         : Y              
-AudioRxClk                   : 25        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND+                         : 25        :        :                   :         : 2         :                
 VCCIO2                       : 26        : power  :                   : 3.3V    : 2         :                
 GND                          : 27        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 28        :        :                   :         : 2         :                
 VCCINT                       : 29        : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 30        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 31        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 32        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 33        :        :                   :         : 2         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 34        :        :                   :         : 2         :                
+AudioTxData                  : 31        : output : 3.3-V LVTTL       :         : 2         : Y              
+AudioRxData                  : 32        : input  : 3.3-V LVTTL       :         : 2         : Y              
+AudioTxWs                    : 33        : output : 3.3-V LVTTL       :         : 2         : Y              
+AudioRxWs                    : 34        : input  : 3.3-V LVTTL       :         : 2         : Y              
 VCCA1                        : 35        : power  :                   : 2.5V    :           :                
 GNDA1                        : 36        : gnd    :                   :         :           :                
 VCCD_PLL1                    : 37        : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 38        :        :                   :         : 3         :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 39        :        :                   :         : 3         :                
+AudioRxClk                   : 38        : input  : 3.3-V LVTTL       :         : 3         : Y              
+AudioTxClk                   : 39        : output : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 40        : power  :                   : 3.3V    : 3         :                
 GND                          : 41        : gnd    :                   :         :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 42        :        :                   :         : 3         :                
-AudioMCLK                    : 43        : output : 3.3-V LVTTL       :         : 3         : N              
+AudioSda                     : 42        : bidir  : 3.3-V LVTTL       :         : 3         : Y              
+AudioMCLK                    : 43        : output : 3.3-V LVTTL       :         : 3         : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : 44        :        :                   :         : 3         :                
 VCCINT                       : 45        : power  :                   : 1.2V    :           :                
-RESERVED_INPUT_WITH_WEAK_PULLUP : 46        :        :                   :         : 3         :                
+AudioScl                     : 46        : bidir  : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 47        : power  :                   : 3.3V    : 3         :                
 GND                          : 48        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 49        :        :                   :         : 3         :                
@@ -191,8 +191,8 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 120       :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : 121       :        :                   :         : 7         :                
 VCCIO7                       : 122       : power  :                   : 3.3V    : 7         :                
 GND                          : 123       : gnd    :                   :         :           :                
-AudioSda                     : 124       : bidir  : 3.3-V LVTTL       :         : 7         : N              
-AudioScl                     : 125       : bidir  : 3.3-V LVTTL       :         : 7         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 124       :        :                   :         : 7         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 125       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 126       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 127       :        :                   :         : 7         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 128       :        :                   :         : 8         :                
@@ -204,12 +204,12 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : 133       :        :                   :      
 VCCINT                       : 134       : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 135       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 136       :        :                   :         : 8         :                
-AudioRxData                  : 137       : input  : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 137       :        :                   :         : 8         :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 138       :        :                   :         : 8         :                
 VCCIO8                       : 139       : power  :                   : 3.3V    : 8         :                
 GND                          : 140       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 141       :        :                   :         : 8         :                
-AudioTxData                  : 142       : output : 3.3-V LVTTL       :         : 8         : N              
-AudioRxWs                    : 143       : input  : 3.3-V LVTTL       :         : 8         : N              
-AudioTxWs                    : 144       : output : 3.3-V LVTTL       :         : 8         : N              
+RESERVED_INPUT_WITH_WEAK_PULLUP : 142       :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 143       :        :                   :         : 8         :                
+RESERVED_INPUT_WITH_WEAK_PULLUP : 144       :        :                   :         : 8         :                
 GND                          : EPAD      :        :                   :         :           :                

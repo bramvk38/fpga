@@ -10,7 +10,7 @@
 		<user_name>Page_0</user_name>
 		<page_flags>1</page_flags>
 		<bit0>
-			<sof_filename>D:/Projects/FPGA/bramvk38_fpga/demo/quartus/output_files/LedTest.sof</sof_filename>
+			<sof_filename>D:/Projects/FPGA/bramvk38_fpga/audioboard/quartus/output_files/AudioBoard.sof</sof_filename>
 		</bit0>
 	</sof_data>
 	<version>5</version>
