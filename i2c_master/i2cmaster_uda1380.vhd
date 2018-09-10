@@ -50,8 +50,10 @@ begin
     p_State : process(Clk)
     begin
         if rising_edge(Clk) then
+
             sda_in_q  <= SDA_IN;
             sda_in_qq <= sda_in_q;
+
             -- IDLE
             if (state = S_IDLE) then
                 SCL_OUT <= '1';
@@ -75,6 +77,7 @@ begin
                     next_state        <= S_WRITE_ADDR;
                     state             <= S_SENDBYTE;
                 end if;
+
             -- REGISTER ADDR
             elsif (state = S_WRITE_ADDR) then
                 counter <= "0000";
