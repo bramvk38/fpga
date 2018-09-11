@@ -73,6 +73,28 @@ architecture mixed of AudioBoard is
             c0     : out std_logic;
             locked : out std_logic);
     end component;
+    -- Audio Effect : pitch shifter
+    component EBABWrapper
+        port(
+            -- Outputs
+            bus_byte_enable         : out std_logic_vector(3 downto 0);
+            bus_read                : out std_logic;
+            bus_write               : out std_logic;
+            bus_write_data          : out std_logic_vector(31 downto 0);
+            bus_addr                : out std_logic_vector(31 downto 0);
+            -- Inputs
+            clk                     : in  std_logic;
+            rst                     : in  std_logic;
+            out_sel                 : in  std_logic;
+            delta_mode_left         : in  std_logic;
+            delta_mode_right        : in  std_logic;
+            bus_ack                 : in  std_logic;
+            bus_read_data           : in  std_logic_vector(31 downto 0);
+            delta_left              : in  std_logic_vector(31 downto 0);
+            delta_right             : in  std_logic_vector(31 downto 0);
+            triangle_wave_max_left  : in  std_logic_vector(9 downto 0);
+            triangle_wave_max_right : in  std_logic_vector(9 downto 0));
+    end component;
 begin
 
     -- Assign LED outputs
