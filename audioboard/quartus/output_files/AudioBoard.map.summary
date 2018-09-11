@@ -1,14 +1,14 @@
-Analysis & Synthesis Status : Successful - Mon Sep 10 21:00:22 2018
+Analysis & Synthesis Status : Successful - Tue Sep 11 08:37:20 2018
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : AudioBoard
 Top-level Entity Name : AudioBoard
 Family : Cyclone IV E
-Total logic elements : 2,182
-    Total combinational functions : 1,137
-    Dedicated logic registers : 1,622
-Total registers : 1622
+Total logic elements : 1,274
+    Total combinational functions : 884
+    Dedicated logic registers : 833
+Total registers : 833
 Total pins : 23
 Total virtual pins : 0
-Total memory bits : 299,008
+Total memory bits : 49,152
 Embedded Multiplier 9-bit elements : 0
 Total PLLs : 1

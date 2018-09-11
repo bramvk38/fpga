@@ -1,5 +1,5 @@
 Flow report for AudioBoard
-Mon Sep 10 21:00:52 2018
+Tue Sep 11 08:37:46 2018
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,20 +40,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Mon Sep 10 21:00:45 2018      ;
+; Flow Status                        ; Successful - Tue Sep 11 08:37:40 2018      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; AudioBoard                                 ;
 ; Top-level Entity Name              ; AudioBoard                                 ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE10E22C8                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 2,027 / 10,320 ( 20 % )                    ;
-;     Total combinational functions  ; 1,141 / 10,320 ( 11 % )                    ;
-;     Dedicated logic registers      ; 1,622 / 10,320 ( 16 % )                    ;
-; Total registers                    ; 1622                                       ;
+; Total logic elements               ; 1,184 / 10,320 ( 11 % )                    ;
+;     Total combinational functions  ; 888 / 10,320 ( 9 % )                       ;
+;     Dedicated logic registers      ; 833 / 10,320 ( 8 % )                       ;
+; Total registers                    ; 833                                        ;
 ; Total pins                         ; 23 / 92 ( 25 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 299,008 / 423,936 ( 71 % )                 ;
+; Total memory bits                  ; 49,152 / 423,936 ( 12 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 46 ( 0 % )                             ;
 ; Total PLLs                         ; 1 / 2 ( 50 % )                             ;
 +------------------------------------+--------------------------------------------+
@@ -64,59 +64,59 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/10/2018 21:00:10 ;
+; Start date & time ; 09/11/2018 08:37:06 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; AudioBoard          ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                                                                                                                                                                                                          ;
-+-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
-; Assignment Name                     ; Value                                                                                                                                                                                                                                                                    ; Default Value ; Entity Name ; Section Id ;
-+-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 158515232110867.153660601006756                                                                                                                                                                                                                                          ; --            ; --          ; --         ;
-; ENABLE_SIGNALTAP                    ; On                                                                                                                                                                                                                                                                       ; --            ; --          ; --         ;
-; IP_TOOL_NAME                        ; ALTPLL                                                                                                                                                                                                                                                                   ; --            ; --          ; --         ;
-; IP_TOOL_VERSION                     ; 13.1                                                                                                                                                                                                                                                                     ; --            ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                                                                                                                                                                                       ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                                                                                                                                                                        ; --            ; --          ; --         ;
-; MISC_FILE                           ; ../../altera_ip/altpll_12M289_ip/uda1380pll.cmp                                                                                                                                                                                                                          ; --            ; --          ; --         ;
-; MISC_FILE                           ; ../../altera_ip/altpll_12M289_ip/uda1380pll.ppf                                                                                                                                                                                                                          ; --            ; --          ; --         ;
-; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                                                                                                                                                                                                                                     ; --            ; --          ; --         ;
-; PARTITION_COLOR                     ; 16764057                                                                                                                                                                                                                                                                 ; --            ; --          ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                                                                                                                                                                                                                                    ; --            ; --          ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                                                                                                                                                                                                                                                   ; --            ; --          ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                                                                                                                                                                                                      ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                                                                                                                                                                                                    ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                                                                                                                                                                                                             ; --            ; --          ; --         ;
-; SLD_FILE                            ; db/stp1_auto_stripped.stp                                                                                                                                                                                                                                                ; --            ; --          ; --         ;
-; SLD_NODE_CREATOR_ID                 ; 110                                                                                                                                                                                                                                                                      ; --            ; --          ; iic        ;
-; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                                                                                                                                                                                                            ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                                                                                                                                                                                                                  ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=73                                                                                                                                                                                                                                                         ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=73                                                                                                                                                                                                                                                      ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                                                                                                                                                                                                                                  ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                                                                                                                                                                                                                   ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                                                                                                                                                                                                            ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                                                                                                                                                                                                               ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                                                                                                                                                                                                                           ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                                                                                                                                                                                                                        ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                                                                                                                                                                                                                   ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                                                                                                                                                                                                                             ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_CRC_LOWORD=41625                                                                                                                                                                                                                                                ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                                                                                                                                                                                                                      ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                                                                                                                                                                                                                                 ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                                                                                                                                                                                                                                     ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                                                                                                                                                                                                             ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=0                                                                                                                                                                                                                                            ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=245                                                                                                                                                                                                                                            ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=4096                                                                                                                                                                                                                                                    ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_CRC_HIWORD=48846                                                                                                                                                                                                                                                ; --            ; --          ; iic        ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=4096                                                                                                                                                                                                                                                    ; --            ; --          ; iic        ;
-; USE_SIGNALTAP_FILE                  ; stp1.stp                                                                                                                                                                                                                                                                 ; --            ; --          ; --         ;
-+-------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                        ;
++-------------------------------------+------------------------------------------------------------------+---------------+-------------+------------------+
+; Assignment Name                     ; Value                                                            ; Default Value ; Entity Name ; Section Id       ;
++-------------------------------------+------------------------------------------------------------------+---------------+-------------+------------------+
+; COMPILER_SIGNATURE_ID               ; 158515232110867.153664782608104                                  ; --            ; --          ; --               ;
+; ENABLE_SIGNALTAP                    ; On                                                               ; --            ; --          ; --               ;
+; IP_TOOL_NAME                        ; ALTPLL                                                           ; --            ; --          ; --               ;
+; IP_TOOL_VERSION                     ; 13.1                                                             ; --            ; --          ; --               ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                               ; --            ; --          ; --               ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                ; --            ; --          ; --               ;
+; MISC_FILE                           ; ../../altera_ip/altpll_12M289_ip/uda1380pll.cmp                  ; --            ; --          ; --               ;
+; MISC_FILE                           ; ../../altera_ip/altpll_12M289_ip/uda1380pll.ppf                  ; --            ; --          ; --               ;
+; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                                             ; --            ; --          ; --               ;
+; PARTITION_COLOR                     ; 16764057                                                         ; --            ; --          ; Top              ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                            ; --            ; --          ; Top              ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                           ; --            ; --          ; Top              ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                              ; --            ; --          ; --               ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                            ; --            ; --          ; --               ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                     ; --            ; --          ; --               ;
+; SLD_FILE                            ; db/stp_audio_auto_stripped.stp                                   ; --            ; --          ; --               ;
+; SLD_NODE_CREATOR_ID                 ; 110                                                              ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                    ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                          ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=6                                                  ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=6                                               ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                          ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                           ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                    ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                       ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                   ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                           ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_CRC_LOWORD=45744                                        ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                              ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                         ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=basic,1,                             ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=0                                    ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=000000000000000000000000000000000000000000000 ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=45                                     ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=8192                                            ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_CRC_HIWORD=59740                                        ; --            ; --          ; auto_signaltap_0 ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=8192                                            ; --            ; --          ; auto_signaltap_0 ;
+; USE_SIGNALTAP_FILE                  ; stp_audio.stp                                                    ; --            ; --          ; --               ;
++-------------------------------------+------------------------------------------------------------------+---------------+-------------+------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -124,11 +124,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:11     ; 1.0                     ; 4772 MB             ; 00:00:11                           ;
-; Fitter                    ; 00:00:17     ; 1.5                     ; 5685 MB             ; 00:00:24                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 4601 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:05     ; 2.4                     ; 4751 MB             ; 00:00:06                           ;
-; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:43                           ;
+; Analysis & Synthesis      ; 00:00:14     ; 1.0                     ; 4744 MB             ; 00:00:13                           ;
+; Fitter                    ; 00:00:13     ; 1.6                     ; 5681 MB             ; 00:00:19                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 4605 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 4736 MB             ; 00:00:05                           ;
+; Total                     ; 00:00:35     ; --                      ; --                  ; 00:00:39                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
