@@ -6,28 +6,28 @@ use ieee.std_logic_1164.all;
 entity AudioBoard is
     port(
         -- Board default pins
-        ClkSys      : in    std_logic;  --System Clk 50M, pin 23
-        ClkUser     : in    std_logic;  --User Clk, pin 24 (NA)
-        LED0        : out   std_logic;  --LED0, IO 73
-        LED1        : out   std_logic;  --LED1, IO 74
-        LED2        : out   std_logic;  --LED2, IO 75
-        LED3        : out   std_logic;  --LED3, IO 76
-        LED4        : out   std_logic;  --LED4, IO 77
-        LED5        : out   std_logic;  --LED5, IO 83
-        LED6        : out   std_logic;  --LED6, IO 84
-        LED7        : out   std_logic;  --LED7, IO 85
-        KEY0        : in    std_logic;  --KEY0, pin 86
-        KEY1        : in    std_logic;  --KEY0, pin 87
+        ClkSys      : in    std_logic;  -- pin 23 - System Clk (50M) 
+        ClkUser     : in    std_logic;  -- pin 24 - User Clk (NA)
+        LED0        : out   std_logic;  -- pin 73 - LED0 
+        LED1        : out   std_logic;  -- pin 74 - LED1 
+        LED2        : out   std_logic;  -- pin 75 - LED2 
+        LED3        : out   std_logic;  -- pin 76 - LED3 
+        LED4        : out   std_logic;  -- pin 77 - LED4 
+        LED5        : out   std_logic;  -- pin 83 - LED5 
+        LED6        : out   std_logic;  -- pin 84 - LED6 
+        LED7        : out   std_logic;  -- pin 85 - LED7 
+        KEY0        : in    std_logic;  -- pin 86 - KEY0 
+        KEY1        : in    std_logic;  -- pin 87 - KEY1
         -- Project pins
-        AudioScl    : inout std_logic;  -- pin xx - UDA1380 i2c interface
-        AudioSda    : inout std_logic;  -- pin xx
-        AudioMCLK   : out   std_logic;  -- pin xx - UDA1380 system clock
-        AudioTxClk  : out   std_logic;  -- pin xx - connect to Rx on UDA138
-        AudioTxWs   : out   std_logic;  -- pin xx
-        AudioTxData : out   std_logic;  -- pin xx
-        AudioRxClk  : in    std_logic;  -- pin xx - connect to Tx on UDA1380
-        AudioRxWs   : in    std_logic;  -- pin xx
-        AudioRxData : in    std_logic;  -- pin xx
+        AudioScl    : inout std_logic;  -- pin 46 - UDA1380 i2c interface
+        AudioSda    : inout std_logic;  -- pin 42
+        AudioMCLK   : out   std_logic;  -- pin 43 - UDA1380 system clock
+        AudioTxClk  : out   std_logic;  -- pin 39 - connect to Rx on UDA138
+        AudioTxWs   : out   std_logic;  -- pin 33
+        AudioTxData : out   std_logic;  -- pin 31
+        AudioRxClk  : in    std_logic;  -- pin 38 - connect to Tx on UDA1380
+        AudioRxWs   : in    std_logic;  -- pin 34
+        AudioRxData : in    std_logic;  -- pin 32
         UartTx      : out   std_logic;  -- pin 51 - UART control/register interface
         UartRx      : in    std_logic); -- pin 52
 end entity AudioBoard;
@@ -60,18 +60,18 @@ architecture mixed of AudioBoard is
     signal SDA_IN           : std_logic;
     signal SDA_OUT          : std_logic;
     --  I2S UDA1380
-    signal MCLK             : std_logic; -- UDA1380 sysclk => 256 x 48 (fs) = 12.288 MHz
-    signal RstMCLK_n        : std_logic;
-    signal RstMCLK          : std_logic;
     signal AudioSampleTx    : std_logic_vector(19 downto 0);
     signal AudioSampleRx    : std_logic_vector(19 downto 0);
     signal AudioSampleValid : std_logic;
-    -- altpll
+    -- altpll: clock generation
+    signal ClkAudio         : std_logic; -- UDA1380 sysclk => 256 x 48 (fs) = 12.288 MHz
+    signal RstAudio_n       : std_logic;
+    signal RstAudio         : std_logic;
     component uda1380pll
         port(
-            inclk0 : in  STD_LOGIC := '0';
-            c0     : out STD_LOGIC;
-            locked : out STD_LOGIC);
+            inclk0 : in  std_logic := '0';
+            c0     : out std_logic;
+            locked : out std_logic);
     end component;
 begin
 
@@ -94,10 +94,10 @@ begin
     audio_mclk : uda1380pll
         port map(
             inclk0 => ClkSys,
-            c0     => MCLK,
-            locked => RstMCLK_n);
-    RstMCLK   <= not RstMCLK_n;
-    AudioMCLK <= MCLK;
+            c0     => ClkAudio,
+            locked => RstAudio_n);
+    RstAudio  <= not RstAudio_n;
+    AudioMCLK <= ClkAudio;
 
     -- I2S UDA 1380 audio codec
     i2s_UDA1380 : entity i2s.i2s_interface
@@ -105,8 +105,8 @@ begin
             DATA_WIDTH  => 20,
             BITPERFRAME => 64)
         port map(
-            clk        => MCLK,
-            reset      => RstMCLK,
+            clk        => ClkAudio,
+            reset      => RstAudio,
             bclk       => AudioRxClk,
             lrclk      => AudioRxWs,
             sample_out => AudioSampleRx,
@@ -117,8 +117,8 @@ begin
             ready      => open);
     AudioTxClk <= AudioRxClk;
     AudioTxWs  <= AudioRxWs;
-	 
-	 AudioSampleTx <= AudioSampleRx; -- Loop back
+
+    AudioSampleTx <= AudioSampleRx;     -- Loop back
 
     -- I2C UDA 1380 audio codec module
     i2c_UDA1380 : entity i2c_master.I2cMaster_UDA1380
@@ -152,7 +152,7 @@ begin
         end if;
     end process;
 
-    --  open drain PAD pull up 1.5K needed
+    --  open drain PAD pull up 1.5K needed => 1k pull up on UDA1380
     AudioScl <= 'Z' when SCL_OUT = '1' else '0';
     SCL_IN   <= to_UX01(AudioScl);
     AudioSda <= 'Z' when SDA_OUT = '1' else '0';

@@ -42,7 +42,7 @@ architecture rtl of I2cMaster_UDA1380 is
     signal next_counter        : std_logic_vector(3 downto 0);
     signal shift               : std_logic_vector(7 downto 0) := (others => '0');
     signal sda_in_q, sda_in_qq : std_logic                    := '1';
-	 signal writing             : std_logic                    := '0';
+    signal writing             : std_logic                    := '0';
 
 begin
 
@@ -60,14 +60,14 @@ begin
                 SCL_OUT <= '1';
                 SDA_OUT <= '1';
                 counter <= (others => '0');
-                    if (Write = '1' or Read = '1') then
-                        state <= S_START;
-								if (Write = '1') then
-								    writing <= '1';
-							   else
-								    writing <= '0';
-									 end if;
+                if (Write = '1' or Read = '1') then
+                    state <= S_START;
+                    if (Write = '1') then
+                        writing <= '1';
+                    else
+                        writing <= '0';
                     end if;
+                end if;
 
             -- DEVICE ID
             elsif (state = S_START) then
