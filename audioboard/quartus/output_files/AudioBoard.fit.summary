@@ -1,11 +1,11 @@
-Fitter Status : Successful - Tue Sep 11 08:37:35 2018
+Fitter Status : Successful - Tue Sep 11 23:12:36 2018
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : AudioBoard
 Top-level Entity Name : AudioBoard
 Family : Cyclone IV E
 Device : EP4CE10E22C8
 Timing Models : Final
-Total logic elements : 1,184 / 10,320 ( 11 % )
+Total logic elements : 1,183 / 10,320 ( 11 % )
     Total combinational functions : 888 / 10,320 ( 9 % )
     Dedicated logic registers : 833 / 10,320 ( 8 % )
 Total registers : 833

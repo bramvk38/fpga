@@ -3,19 +3,19 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'ClkSys'
-Slack : 12.794
+Slack : 11.979
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'altera_reserved_tck'
-Slack : 42.795
+Slack : 43.281
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Setup 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 71.524
+Slack : 71.718
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.440
+Slack : 0.432
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'ClkSys'
@@ -23,19 +23,19 @@ Slack : 0.452
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'altera_reserved_tck'
-Slack : 0.453
+Slack : 0.452
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'altera_reserved_tck'
-Slack : 47.196
+Slack : 47.363
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'altera_reserved_tck'
-Slack : 1.583
+Slack : 1.313
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ClkSys'
-Slack : 9.738
+Slack : 9.737
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
@@ -47,18 +47,22 @@ Slack : 49.385
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'ClkSys'
-Slack : 13.220
+Slack : 12.397
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 43.397
+Slack : 43.748
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 72.224
+Slack : 72.395
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'ClkSys'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
 Slack : 0.400
 TNS   : 0.000
 
@@ -66,20 +70,16 @@ Type  : Slow 1200mV 0C Model Hold 'altera_reserved_tck'
 Slack : 0.401
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.401
-TNS   : 0.000
-
 Type  : Slow 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 47.523
+Slack : 47.666
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 1.418
+Slack : 1.218
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ClkSys'
-Slack : 9.747
+Slack : 9.748
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
@@ -87,23 +87,23 @@ Slack : 40.399
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.231
+Slack : 49.230
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'ClkSys'
-Slack : 16.934
+Slack : 16.265
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 47.125
+Slack : 47.345
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 77.034
+Slack : 77.171
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'
-Slack : 0.146
+Slack : 0.144
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'ClkSys'
@@ -115,15 +115,15 @@ Slack : 0.186
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 49.020
+Slack : 49.133
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 0.656
+Slack : 0.558
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ClkSys'
-Slack : 9.262
+Slack : 9.261
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'audio_mclk|altpll_component|auto_generated|pll1|clk[0]'

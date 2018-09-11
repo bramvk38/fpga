@@ -78,12 +78,12 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name SDC_FILE AudioBoard.sdc
 set_location_assignment PIN_43 -to AudioMCLK
-set_location_assignment PIN_32 -to AudioRxData
-set_location_assignment PIN_31 -to AudioTxData
-set_location_assignment PIN_34 -to AudioRxWs
-set_location_assignment PIN_33 -to AudioTxWs
-set_location_assignment PIN_38 -to AudioRxClk
-set_location_assignment PIN_39 -to AudioTxClk
+set_location_assignment PIN_31 -to AudioRxData
+set_location_assignment PIN_32 -to AudioTxData
+set_location_assignment PIN_33 -to AudioRxWs
+set_location_assignment PIN_34 -to AudioTxWs
+set_location_assignment PIN_39 -to AudioRxClk
+set_location_assignment PIN_38 -to AudioTxClk
 set_location_assignment PIN_46 -to AudioScl
 set_location_assignment PIN_42 -to AudioSda
 set_global_assignment -name ENABLE_SIGNALTAP ON

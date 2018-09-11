@@ -98,15 +98,15 @@ GND                          : 27        : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : 28        :        :                   :         : 2         :                
 VCCINT                       : 29        : power  :                   : 1.2V    :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 30        :        :                   :         : 2         :                
-AudioTxData                  : 31        : output : 3.3-V LVTTL       :         : 2         : Y              
-AudioRxData                  : 32        : input  : 3.3-V LVTTL       :         : 2         : Y              
-AudioTxWs                    : 33        : output : 3.3-V LVTTL       :         : 2         : Y              
-AudioRxWs                    : 34        : input  : 3.3-V LVTTL       :         : 2         : Y              
+AudioRxData                  : 31        : input  : 3.3-V LVTTL       :         : 2         : Y              
+AudioTxData                  : 32        : output : 3.3-V LVTTL       :         : 2         : Y              
+AudioRxWs                    : 33        : input  : 3.3-V LVTTL       :         : 2         : Y              
+AudioTxWs                    : 34        : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCA1                        : 35        : power  :                   : 2.5V    :           :                
 GNDA1                        : 36        : gnd    :                   :         :           :                
 VCCD_PLL1                    : 37        : power  :                   : 1.2V    :           :                
-AudioRxClk                   : 38        : input  : 3.3-V LVTTL       :         : 3         : Y              
-AudioTxClk                   : 39        : output : 3.3-V LVTTL       :         : 3         : Y              
+AudioTxClk                   : 38        : output : 3.3-V LVTTL       :         : 3         : Y              
+AudioRxClk                   : 39        : input  : 3.3-V LVTTL       :         : 3         : Y              
 VCCIO3                       : 40        : power  :                   : 3.3V    : 3         :                
 GND                          : 41        : gnd    :                   :         :           :                
 AudioSda                     : 42        : bidir  : 3.3-V LVTTL       :         : 3         : Y              
