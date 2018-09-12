@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for AudioBoard
-Tue Sep 11 23:12:48 2018
+Wed Sep 12 11:37:15 2018
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -146,12 +146,13 @@ applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
+; Average used               ; 1.25        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ; < 0.1%      ;
+;     Processor 2            ;  25.0%      ;
+;     Processors 3-8         ; < 0.1%      ;
 +----------------------------+-------------+
 
 
@@ -160,7 +161,7 @@ applicable agreement for further details.
 +----------------+--------+--------------------------+
 ; SDC File Path  ; Status ; Read at                  ;
 +----------------+--------+--------------------------+
-; AudioBoard.sdc ; OK     ; Tue Sep 11 23:12:45 2018 ;
+; AudioBoard.sdc ; OK     ; Wed Sep 12 11:37:12 2018 ;
 +----------------+--------+--------------------------+
 
 
@@ -4462,7 +4463,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Tue Sep 11 23:12:43 2018
+    Info: Processing started: Wed Sep 12 11:37:10 2018
 Info: Command: quartus_sta AudioBoard -c AudioBoard
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
@@ -4567,9 +4568,9 @@ Info (332146): Worst-case minimum pulse width slack is 9.261
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4733 megabytes
-    Info: Processing ended: Tue Sep 11 23:12:48 2018
+    Info: Peak virtual memory: 4734 megabytes
+    Info: Processing ended: Wed Sep 12 11:37:15 2018
     Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 
