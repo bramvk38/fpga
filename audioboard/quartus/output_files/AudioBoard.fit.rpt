@@ -1,5 +1,5 @@
 Fitter report for AudioBoard
-Wed Sep 12 11:37:04 2018
+Wed Sep 12 12:30:09 2018
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -72,7 +72,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Fitter Summary                                                                  ;
 +------------------------------------+--------------------------------------------+
-; Fitter Status                      ; Successful - Wed Sep 12 11:37:04 2018      ;
+; Fitter Status                      ; Successful - Wed Sep 12 12:30:09 2018      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; AudioBoard                                 ;
 ; Top-level Entity Name              ; AudioBoard                                 ;
@@ -159,12 +159,13 @@ applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
-; Average used               ; 1.83        ;
+; Average used               ; 2.17        ;
 ; Maximum used               ; 8           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;  16.7%      ;
+;     Processor 2            ;  33.3%      ;
+;     Processors 3-4         ;  25.0%      ;
 ;     Processors 5-8         ;   8.3%      ;
 +----------------------------+-------------+
 
@@ -2334,10 +2335,10 @@ Warning (169177): 10 pins must meet Altera requirements for 3.3-, 3.0-, and 2.5-
     Info (169178): Pin UartRx uses I/O standard 3.3-V LVTTL at 52
 Info (144001): Generated suppressed messages file D:/Projects/FPGA/bramvk38_fpga/audioboard/quartus/output_files/AudioBoard.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5668 megabytes
-    Info: Processing ended: Wed Sep 12 11:37:05 2018
+    Info: Peak virtual memory: 5674 megabytes
+    Info: Processing ended: Wed Sep 12 12:30:10 2018
     Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:20
+    Info: Total CPU time (on all processors): 00:00:19
 
 
 +----------------------------+
